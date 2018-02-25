@@ -1,0 +1,27 @@
+apply plugin: 'java'
+apply plugin: 'application'
+
+repositories {
+    mavenLocal()
+    mavenCentral()
+    jcenter()
+}
+
+task wrapper(type: Wrapper) {
+    gradleVersion = '4.5.1'
+}
+
+ext {
+    jmonkeyVersion = '3.2.0-SNAPSHOT'
+}
+
+mainClassName = 'pl.rembol.jme3.cars.Main'
+
+dependencies {
+    compile "org.jmonkeyengine:jme3-desktop:$jmonkeyVersion"
+    compile "org.jmonkeyengine:jme3-bullet:$jmonkeyVersion"
+    compile 'pl.rembol.jme3.game:common:0.0.1-SNAPSHOT'
+    runtime "org.jmonkeyengine:jme3-blender:$jmonkeyVersion"
+    runtime "org.jmonkeyengine:jme3-lwjgl:$jmonkeyVersion"
+    runtime "org.jmonkeyengine:jme3-bullet-native:$jmonkeyVersion"
+}
